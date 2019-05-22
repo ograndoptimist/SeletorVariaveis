@@ -73,7 +73,8 @@ if __name__ == '__main__':
     baseDados = pd.read_excel('base_buy.xlsx')
 
     testeHipotese = Seletor()
-    # grupo_1, grupo_2, t, p_value = testeHipotese.teste_student(baseDados, 'AGE ', 'RESPOND')
-    # grupo_1, grupo_2, t, p_value = testeHipotese.teste_student(baseDados, 'INCOME ', 'RESPOND')
-    # grupo_1, grupo_2, t, p_value = testeHipotese.teste_student(baseDados, 'FICO ', 'RESPOND')
+
+    grupo_1, grupo_2, t, p_value = testeHipotese.teste_student(baseDados, 'AGE ', 'RESPOND')
+    grupo_1, grupo_2, t, p_value = testeHipotese.teste_student(baseDados, 'INCOME ', 'RESPOND')
+    grupo_1, grupo_2, t, p_value = testeHipotese.teste_student(baseDados, 'FICO ', 'RESPOND')
     grupo_1, grupo_2, t, p_value = testeHipotese.teste_student(baseDados, 'VALUE24 ', 'RESPOND')
