@@ -46,11 +46,8 @@ class Seletor(object):
         # O objetivo do teste de hipótese é negar esta hipotese, e garantir a hipótese H1:
         # De que a média dos dois grupos é diferente
         if grupo_1_media != grupo_2_media:
-            # A partir daqui o teste t-student começa
-            # n_grupo_1, n_grupo_2 = len(df_num_1), len(df_num_2)
             variancia_grupo_1, variancia_grupo_2 = df_num_1.var(), df_num_2.var()
-            # t = abs(grupo_1_media - grupo_2_media) / ((variancia_grupo_1**2 / n_grupo_1) + (variancia_grupo_2**2 / n_grupo_2))**0.5
-
+            
             if variancia_grupo_1 != variancia_grupo_2:
                 # Cálculo de t e p-value:
                 t, p_value = stats.ttest_ind(df_num_1, df_num_2, equal_var = False)
@@ -78,4 +75,5 @@ if __name__ == '__main__':
     testeHipotese = Seletor()
     # grupo_1, grupo_2, t, p_value = testeHipotese.teste_student(baseDados, 'AGE ', 'RESPOND')
     # grupo_1, grupo_2, t, p_value = testeHipotese.teste_student(baseDados, 'INCOME ', 'RESPOND')
-    grupo_1, grupo_2, t, p_value = testeHipotese.teste_student(baseDados, 'FICO ', 'RESPOND')
+    # grupo_1, grupo_2, t, p_value = testeHipotese.teste_student(baseDados, 'FICO ', 'RESPOND')
+    grupo_1, grupo_2, t, p_value = testeHipotese.teste_student(baseDados, 'VALUE24 ', 'RESPOND')
