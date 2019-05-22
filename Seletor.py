@@ -56,8 +56,17 @@ class Seletor(object):
                 t, p_value = stats.ttest_ind(df_num_1, df_num_2, equal_var = False)
             else:
                 # Cálculo de t e p-value:
-                t, p_value = stats.ttest_ind(df_num_1, df_num_2)            
+                t, p_value = stats.ttest_ind(df_num_1, df_num_2)
 
+        # Se observamos um grande valor para o p-value, por exemplo maior que 0.5 ou 0.1,
+        # então não podemos rejeitar a hipótese nula de médias idênticas.
+        # Se o p-value é menor que o limiar de 0.01, 0.05 ou 0.1
+        # então rejeitamos a hipótese nula de médias iguais.
+        if p_value > 0.5:
+            print("As médias não apresentam diferença estatisticamente significativa")
+        else:
+            print("As médias apresentam diferença estatisticamente significativa")
+    
         return df_num_1, df_num_2, t, p_value
 
 
@@ -67,4 +76,6 @@ if __name__ == '__main__':
     baseDados = pd.read_excel('base_buy.xlsx')
 
     testeHipotese = Seletor()
-    grupo_1, grupo_2, t, p_value = testeHipotese.teste_student(baseDados, 'AGE ', 'RESPOND')
+    # grupo_1, grupo_2, t, p_value = testeHipotese.teste_student(baseDados, 'AGE ', 'RESPOND')
+    # grupo_1, grupo_2, t, p_value = testeHipotese.teste_student(baseDados, 'INCOME ', 'RESPOND')
+    grupo_1, grupo_2, t, p_value = testeHipotese.teste_student(baseDados, 'FICO ', 'RESPOND')
