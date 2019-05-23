@@ -1,3 +1,7 @@
+"""
+    Uma série de Testes de Hipótese dedicados à se fazer seleção de variáveis.
+"""
+
 import pandas as pd
 from scipy import stats
 import numpy as np
