@@ -1,7 +1,6 @@
 import pandas as pd
 from scipy import stats
-from numpy import nan
-import matplotlib.pyplot as plt
+import numpy as np
 
 
 
@@ -21,9 +20,10 @@ class Seletor(object):
 
                                       input -> discreto | output -> contínuo
                                       Levando se em conta uma variável discreta binária.
-                O método compara se as médias dos grupos que são formados pelo agrupamento da variável de saída, são de fato, diferentes.
+                O método compara se as médias dos grupos que são formados pelo agrupamento da variável de saída,
+                são de fato, diferentes.
         """
-        dataframe = dataframe.replace('?', nan)
+        dataframe = dataframe.replace('?', np.nan)
         dataframe = dataframe.dropna()
         
         classes_de_saida = list(dataframe[variavel_saida].unique())
